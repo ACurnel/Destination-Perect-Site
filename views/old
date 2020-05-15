@@ -1,0 +1,194 @@
+
+<%- include('__header') %>
+<style> 
+    .bottom-one {
+    margin-bottom: 1.3cm;
+   }
+   .mr-1{
+       float:right;
+   }
+   .mr-2{
+       float:left;
+   }
+   .mr-3{
+       float:right;
+   }
+   #mb-1{
+       float:left;
+   }
+   #mb-2{
+       float:right;
+   }
+   #mb-3{
+       float:left;
+   }
+</style>
+     
+   <style> 
+    .bottom-two {
+        margin-bottom: 2.3cm;
+    }
+   </style>
+
+   <h1 class="bottom-one">Destination Perfect</h1>
+     
+   <p class="text-monospace && text-center"> Where do you want to travel? </p>  
+   
+     <!--need to figure out how to make width smaller -->
+   <div class="input-group && bottom-two">
+     <div class="input-group-prepend">
+       <span class="input-group-text">I want to travel to ...</span>
+     </div>
+     <input type="text" class = "form-control" placeholder = "Country" aria-label="Country">
+     <input type="text" class = "form-control" placeholder = "City" aria-label="City" >
+   </div>
+
+   <a href="/dest">Second Page</a>
+
+   
+     <!--cards -->
+   <h1 class = "bottom-one">Popular Locations</h1>
+     
+ <div class="row row-cols-1 row-cols-md-4 && bottom-two">
+   <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 1 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 1</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 2 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 2</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 3 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 3</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 4 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 4</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 5 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 5</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 6 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 6</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+   <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 7 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 7</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 8 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 8</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 9 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 9</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 10 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 10</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 11 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 11</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+ <div class="col mb-4">
+     <div class="card h-100">
+       <img src="..." class="card-img-top" alt="Destination 12 image">
+       <div class="card-body">
+         <h5 class="card-title"> Destination 12</h5>
+         <a href="#" class="card-link">Travel Here</a>
+       </div>
+     </div>
+   </div>
+</div> 
+     
+     
+   <!-- Destination Perfect Features -->
+   <h1 class = "bottom-one">Destination Perfect Features</h1>
+     <ul class="list-unstyled">
+ <li class="media">
+   <img src="acj-0308-switzerland-mountains-2.jpg" class="mr-1" alt="feature 1 image">
+   <div id="mb-1" class="media-body">
+     <h5 class="mt-0 mb-1">Find Top Attractions in Your Destination</h5>
+     Find the top sights to see and things to do at your destination. 
+   </div>
+ </li>
+ <li class="media my-4">
+   <img src="weather.jpg" class="mr-2" alt="feature 2 image">
+   <div id="mb-2" class="media-body">
+     <h5 class="mt-0 mb-1">Check the Weather in Your Destination</h5>
+     Check what the weather will be like during your trip. Helps with packing and picking attractions.
+
+   </div>
+ </li>
+ <li class="media">
+   <img src="foreign-currency.jpg" class="mr-3" alt="feature 3 image">
+   <div id="mb-3" class="media-body">
+     <h5 class="mt-0 mb-1">Convert the Currency from USD to the Currency of Your Destination</h5>
+     Convert from USD to the currency of your destination. Perfect for international trips and budgeting.
+
+   </div>
+ </li>
+</ul>
+
+
+
+<%- include('__footer') %>

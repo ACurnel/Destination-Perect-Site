@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--source: w3schools.com-->
+        <!--makes this page mobile-friendly-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Destination Perfect</title>
+        <link rel="stylesheet" href="page02.css">
+        <link href="/css/weather.css" rel="stylesheet" type="text/css">
+        <!-- source: w3schools.com-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+           .float-right{
+               float : right;
+           }
+
+           .button{
+               float : right;
+            }
+
+        </style>
+    </head>
+    <body>
+    <%    var exchangeRates = data.rates; %>
+    <%    for (var key in exchangeRates){%>
+    <%        if (exchangeRates.hasOwnProperty(key)){%>
+    <p><%="1 USD = " + exchangeRates[key] + " "+ key%></p>
+    <%        }%>
+    <%    }%>
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="/css/weather.css">
+
+<%var weekday = new Array(7); %>
+<%weekday[0] = "Sunday";%>
+<%weekday[1] = "Monday";%>
+<%weekday[2] = "Tuesday";%>
+<%weekday[3] = "Wednesday";%>
+<%weekday[4] = "Thursday";%>
+<%weekday[5] = "Friday";%>
+<%weekday[6] = "Saturday";%>
+
+ <% let city = data.city.name %>
+ <% let temp1 = Math.round((data.list[0].main.temp - 273.15) * 9/5 ) + 32%>
+ <% let day1 = weekday[new Date( data.list[0].dt_txt.substring(0,10)).getDay()] %>
+ <% let temp2 = Math.round((data.list[8].main.temp - 273.15) * 9/5 ) + 32%>
+ <% let day2 = weekday[new Date( data.list[8].dt_txt.substring(0,10)).getDay()] %>
+ <% let temp3 = Math.round((data.list[16].main.temp - 273.15)* 9/5 ) + 32 %>
+ <% let  day3 = weekday[new Date(data.list[16].dt_txt.substring(0,10)).getDay()] %>
+ <% let temp4 = Math.round((data.list[24].main.temp - 273.15)* 9/5 ) + 32 %>
+ <% let  day4 = weekday[new Date(data.list[24].dt_txt.substring(0,10)).getDay()] %>
+ <% let temp5 = Math.round((data.list[32].main.temp - 273.15)* 9/5 ) + 32 %>
+ <% let  day5 = weekday[new Date(data.list[32].dt_txt.substring(0,10)).getDay()] %>
+
+
+ <div class="page-content page-container" id="page-content" >
+    <div class="">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-lg-8 grid-margin stretch-card">
+                <!--weather card-->
+                <div class="card card-weather">
+                    <div class="card-body">
+                        <div class="weather-date-location">
+                            <h3>Friday</h3>
+                            <p class="text-gray"> <span class="weather-date"></span> <span class="weather-location"><%=city%></span> </p>
+                        </div>
+                        <div class="weather-data d-flex">
+                            <div class="mr-auto">
+                                <h4 class="display-3"><%= temp1 %><span class="symbol">°</span>F</h4>
+                                <p> Cloudy </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="d-flex weakly-weather"> 
+                            <div class="weakly-weather-item">
+                            	<!-- Day of the week  -->
+                                <p class="mb-0"> <%= day1 %> &nbsp; </p> <i class="mdi mdi-weather-cloudy"></i>
+                               	<!-- Temperature -->
+                                <p class="mb-0"> <%=temp1%>° </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                                <p class="mb-1"> <%= day2 %> &nbsp; </p> <i class="mdi mdi-weather-hail"></i>
+                                <p class="mb-0"> <%=temp2%>° </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                                <p class="mb-1"> <%= day3 %> &nbsp; </p> <i class="mdi mdi-weather-partlycloudy"></i>
+                                <p class="mb-0"> <%=temp3%>° </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                                <p class="mb-1"> <%= day4 %> &nbsp; </p> <i class="mdi mdi-weather-pouring"></i>
+                                <p class="mb-0"> <%=temp4%>° </p>
+                            </div>
+                            <div class="weakly-weather-item">
+                                <p class="mb-1"> <%= day5 %> &nbsp; </p> <i class="mdi mdi-weather-pouring"></i>
+                                <p class="mb-0"> <%=temp5%>° </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--weather card ends-->
+            </div>
+        </div>
+    </div>

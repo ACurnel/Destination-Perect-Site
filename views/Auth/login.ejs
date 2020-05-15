@@ -1,0 +1,31 @@
+<%- include('../__header') %>
+
+<div class="container"><br>
+<% if(success_msg.length > 0) { %>
+<div class="alert alert-success"><%= success_msg %></div>
+<% } %>
+
+<% if(error_msg.length > 0) { %>
+<div class="alert alert-danger"><%= error_msg %></div>
+<% } %>
+<% if(error.length > 0) { %>
+<div class="alert alert-danger"><%= error %></div>
+<% } %>
+
+<h2 class="page-header">Account Login</h2><br>
+<form method="post" action="/u/login">
+    <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+
+<%- include('../__footer') %>

@@ -1,0 +1,272 @@
+<%- include('__header', {tab: 2}); %>
+<style>
+    .float-right{
+        float : right;
+    }
+    .button{
+        float : right;
+     }
+     img{
+         height: 190px;
+         width: 290px;
+     }
+     h1{
+         font-family: zefani; 
+     }
+     h3{
+        font-family: zefani;  
+     }
+
+     h5{
+        font-family: zefani; 
+     }
+ </style>
+<body style="background-color:#f2f2f2;">
+<div class="container">
+    <br />
+
+    <% var m = {
+        'College Station':'Howdy',
+        'Barcelona':'Hola',
+        'Orlando':'Hello',
+        'Kyoto':'Kon\'nichiwa',
+        'Istanbul':'Merhaba',
+        'Kuala Lumpur':'Hello',
+        'London':'Hello',
+        'New York City':'Hello',
+        'Paris':'Salut',
+        'Rome':'Ciao',
+        'San Jose':'Hola',
+        'Tokyo':'Kon\'nichiwa',
+        'Sydney': "G'day"
+    }
+    %>  
+
+
+    <h1> <%= location %></h1>
+
+    <p style="text-align:center; font-family: zefani; font-size:100px;">
+        <%= location in m ? m[location] : "" %>
+    </p>
+            
+    <br />
+    <% if (weatherData.cod != 404 && weatherData.cod != '404') { %>
+        <%- include('__weather', {data: weatherData}); %>
+    <% } else { %>
+        Weather Data Failed to Load.
+    <% } %>
+    <%- include('__currency', {data: currencyData}); %>
+    <br />
+    <hr />
+
+    <style>
+        .nav-item.active {
+            font-size: 18px!important;
+            background-color:dodgerblue!important;
+        }
+        .nav-item.active a{
+            color: white!important;
+        }
+
+    </style>
+
+    <h3 style="margin-bottom: 0px;">Categories</h3>
+    <div style="background-color: #f8f9fa!important;">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <!-- <a class="navbar-brand" href="/">Destination Perfect</a> -->
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>  -->
+                    <li class="nav-item <%= (byTagKey == 'general') ? 'active' : '' %>">
+                        <a class="nav-link" href="/dest/<%=location%>/">
+                            General
+                        </a>
+                    </li>
+                    <li class="nav-item <%= (byTagKey == 'active') ? 'active' : '' %>">
+                        <a class="nav-link" href="/dest/<%=location%>/Outdoors">
+                            Outdoors
+                        </a>
+                    </li>
+                    <li class="nav-item <%= (byTagKey == 'food') ? 'active' : '' %>">
+                        <a class="nav-link" href="/dest/<%=location%>/Food">
+                            Food
+                        </a>
+                    </li>
+                    <li class="nav-item <%= (byTagKey == 'arts') ? 'active' : '' %>">
+                        <a class="nav-link" href="/dest/<%=location%>/Entertainment">
+                            Entertainment
+                        </a>
+                    </li>
+                    <li class="nav-item <%= (byTagKey == 'hotels') ? 'active' : '' %>">
+                        <a class="nav-link" href="/dest/<%=location%>/Hotels">
+                            Hotels
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <% if(data != null) { %>
+        <% for(var business of data.businesses) { %>
+            <br />
+            <div class="card" style="padding: 10px;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="card-img-top" src="<%=business.image_url%>" alt="Card image cap">
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="card-title"><%= business.name%></h5>
+                        <p class="card-text"> <%= business.price %></p>
+                        <p class="card-text">Location: <%= business.location.address1 %> , <%=business.location.city%> <%=business.location.zip_code%></p>
+                        <p>(<%= business.phone%>)</p>
+                        <p class="float-right">
+                        <button class="button btn btn-primary" onclick="saveProduct(<%= JSON.stringify(userid) %>,<%=JSON.stringify(business) %>)" type="button .rounded-circle" class="btn btn-default" aria-label="Left Align" style="margin-right: 60px;">
+                            Save Location
+                        </button>
+
+                        </p>
+
+                        <% business.categories.forEach(e => { %>
+                            <span class="badge badge-secondary"><%= e.title %> </span>
+                        <% }) %>
+
+                    </div>
+                </div>
+            </div>            
+            <br />
+        <% } %>
+    <% } else { %>
+        Attraction Data Failed to Load
+    <% } %>
+
+
+        <!-- <h3>Destination Perfect</h3>
+        <h1>Paris</h1>
+        <h3>Popular Attractions (Yelp)</h3>
+        <div class="well">
+            Eiffel Tower
+            <button type="button" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info1">
+                See More
+            </button>
+            <div id="more-info1" class="collapse">
+                Completed in 1889, this colossal landmark, although initially hated by many Parisians, is now a famous symbol of French civic pride.
+            </div>
+            
+        </div>
+        <div class="well">
+            Louvre Museum
+            <button type="button" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info2">
+                See More
+            </button>
+            <div id="more-info2" class="collapse">
+                Home to Leonardo da Vinci's Mona Lisa, the Louvre is considered the world's greatest art museum, with an unparalleled collection of items covering the full spectrum of art through the ages.
+            </div>
+        </div>
+        <div class="well">
+            Notre Dame Cathedral
+            <button type="button" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info3">
+                See More
+            </button>
+            <div id="more-info3" class="collapse">
+                This famous cathedral, a masterpiece of Gothic architecture on which construction began in the 12th century, stands on the Île de la Cité and is the symbolic heart of the city.
+            </div>
+        </div>
+        <div class="well">
+            Sainte-Chapelle
+            <button type="button" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info4">
+                See More
+            </button>
+            <div id="more-info4" class="collapse">
+                The Sainte-Chapelle is the finest royal chapel to be built in France and features a truly exceptional collection of stained-glass windows. It was built in the mid 13th century by Louis IX, at the heart of the royal residence, the Palais de la Cité.
+            </div>
+        </div>
+        <div class="well">
+            Seine River
+            <button type="button pull-right" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info5">
+                See More
+            </button>
+            <div id="more-info5" class="collapse">
+                This famous river flows from east to west through the heart of the city and divides Paris's Left Bank and Right Bank.
+            </div>
+        </div>
+        <div class="well">
+            Palais Garnier
+            <button type="button pull-right" class="btn btn-info float-right" data-toggle="collapse" data-target="#more-info6">
+                See More
+            </button>
+            <div id="more-info6" class="collapse">
+                This performance hall hosts opera, ballet and chamber music performances.
+            </div>
+        </div> -->
+
+
+<!--         
+    <hr>
+    <p>Here</p><input type="text" placeholder="Type currency of what you want converted to USD" id="exchangeInput">
+<p>Location: </p> <input type="text" placeholder="Type location that you want of local businesses" id="locationInput">
+<button id="demo" onclick="getRate()">Button Here</button>
+<button id="demo2" onclick="getBusinesses()">business</button>
+
+
+<p id="currencyDisplay"> </p>
+<p id="business card"></p>
+ -->
+</div>
+
+<footer>
+    <br><br>
+    <p style="font-size:12px;" align = "center"> | Contact Us: <a href="EvanYoung@tamu.edu"> EvanYoung@tamu.edu </a> | &copy; 2020 Destination Perfect, All rights reserved. |</p>
+  </footer>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.0.js"
+  integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+<!--  had to include different full jquery link idk if there's a better way  -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<script> 
+
+    function handleConversion() {
+        var targetField = $("#ConvertAmount");
+        var inputField = $("#USDAmount");
+
+        var inputVal = parseInt(inputField.val())
+        // targetField.removeAttr("disabled");
+        targetField.val(inputVal * exchangeRate);
+    }
+    function saveProduct(userid,business){
+        console.log(userid);
+        console.log(JSON.stringify(business));
+        console.log("saving product");
+        var settings = {
+          "url": "/posts/user/create/5e99df2e373ff4e1b9ececbf",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          "data": {
+                "json": JSON.stringify(business),
+                "id": business.id
+          }
+        };
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+    }
+</script>
+
+
+</body>
+</html>

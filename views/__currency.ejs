@@ -1,0 +1,45 @@
+<div class="card" style="padding: 10px;">
+
+    <% var currencyRate = 1 %>
+    <% var currencyName = "" %>
+
+    <%    var exchangeRates = data.rates; %>
+    <%    for (var key in exchangeRates){%>
+    <%        if (exchangeRates.hasOwnProperty(key)){%>
+            <% currencyRate = exchangeRates[key] %>
+            <% currencyName = key %>
+    <%        }%>
+    <%    }%>
+
+
+    <div id="convert" class="form-group" style="margin-bottom: 0px;">
+        <table>
+            <tr>
+                <td><label for="USDAmount"> Amount (in USD)</label></td>
+                <td></td>
+                <td><label for="ConvertedAmount"> Amount (in Destination's Currency)</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        <input class="form-control" id="USDAmount" placeholder="Amount" type="number">
+
+                    </div>
+                </td>
+                <td>
+                    <button id="conversion-btn" type="button" class="btn btn-info padding-left" data-toggle=""
+                        data-target="" onclick="handleConversion()">
+                        Convert
+                    </button>
+                </td>
+                <td>
+                    <input class="form-control" id="ConvertAmount" placeholder="Result" type="text" disabled>
+                </td>
+            </tr>
+        </table>
+        <p style="padding: 10px; font-size: 16px; margin-bottom: 0px;"><%="1 USD = " + currencyRate + " "+ currencyName%></p>
+    </div>
+    <script>
+        var exchangeRate = <%= currencyRate %>;
+    </script>
+</div>

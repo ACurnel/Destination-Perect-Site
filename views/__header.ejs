@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="Destination_Perfect.png" type="image/x-icon"/>
+    <title>Destination Perfect</title>
+  </head>
+  <body>
+  <div style="background-color: #e5e5e5!important;">
+    <div class="container" style="background-color: #e5e5e5!important;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e5e5e5!important;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="background-color: #e5e5e5!important;">
+          <!-- <a class="navbar-brand" href="/">Destination Perfect</a> -->
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>  -->
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/saved/">My Attractions</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <% if (user) { %> 
+              <li class="nav-item">
+                <a class="nav-link" href="/u/logout">Logout from (<%= user.username %>)</a>
+              </li>
+            <% } else { %> 
+              <li class="nav-item">
+                <a class="nav-link" href="/u/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/u/register">Register</a>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+ 
